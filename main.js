@@ -1,33 +1,20 @@
-//Create a function named getComputerChoice. This represents the computer.
-let humanScore = 0;
-let computerScore = 0;
-const maxRounds = 5;
-let round = 0;
-
 //Create random number
 function randomize() {
   let randomNumber = Math.random() * 3; // scales to [0, 3]
   return Math.floor(randomNumber);
 }
-//The code should return one of the following strings: "rock", "paper", or "scissor".
+
+//Create a function named getComputerChoice. This represents the computer.
 function getComputerChoice() {
   let num = randomize();
-  let computerHand = '';
-  //console.log(num);
 
-  switch (num) {
-    case 0:
-      computerHand = 'rock';
-      break;
-    case 1:
-      computerHand = 'paper';
-      break;
-    case 2:
-      computerHand = 'scissor';
-      break;
+  if (num === 0) {
+    return 'rock';
+  } else if (num === 1) {
+    return 'paper';
+  } else {
+    return 'scissor';
   }
-  //console.log(`Computer shows: ${computerHand}`);
-  return computerHand;
 }
 
 // User will select their choice
@@ -51,6 +38,11 @@ function getHumanChoice() {
 
 // Start 5 rounds of Rock Paper Scissor
 function playGame() {
+  let humanScore = 0;
+  let computerScore = 0;
+  const maxRounds = 5;
+  let round = 0;
+
   // Finish the game after 5 rounds
   while (round < maxRounds) {
     // Start a round of the game and check the winner
@@ -102,7 +94,7 @@ function playGame() {
     }
   }
 
-  //Announce the winner of the game
+  //Announce the winner of the game based on the scores. As the game is supposed to be maximum 5 rounds, a draw is possible.
   if (humanScore > computerScore) {
     console.log('%c You won the game! :D', `color: green;`);
   } else if (humanScore === computerScore) {
@@ -112,14 +104,13 @@ function playGame() {
   }
 
   //Reset the variables, so you can start the game again.
-
   function reset() {
     humanScore = 0;
     computerScore = 0;
     round = 0;
   }
 
-  //Checks if player wants to try again
+  //Checks if player wants to start the game again.
   if (confirm('Do you want to play again?')) {
     reset();
     playGame();

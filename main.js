@@ -32,17 +32,17 @@ function getComputerChoice() {
 
 // User will select their choice
 function getHumanChoice() {
-  let choice = prompt('What do you chose?', 'Rock, Paper, or Scissor?');
-  let hand = '';
+  let choice = prompt('What do you chose? (Rock, Paper, or Scissor)');
 
   // Check if the user input is valid
-  if (
-    choice.toLowerCase() === 'scissor' ||
-    choice.toLowerCase() === 'rock' ||
-    choice.toLowerCase() === 'paper'
-  ) {
-    hand = choice;
-    return hand.toLowerCase();
+  if (choice === null) {
+    alert('You have cancelled the game.');
+    return null;
+  }
+  choice = choice.trim().toLowerCase();
+
+  if (choice === 'scissor' || choice === 'rock' || choice === 'paper') {
+    return choice;
   } else {
     alert('Invalid input. Try again!');
     return getHumanChoice();
@@ -51,12 +51,6 @@ function getHumanChoice() {
 
 // Start 5 rounds of Rock Paper Scissor
 function playGame() {
-  function reset() {
-    humanScore = 0;
-    computerScore = 0;
-    round = 0;
-  }
-
   // Finish the game after 5 rounds
   while (round < maxRounds) {
     // Start a round of the game and check the winner
@@ -67,19 +61,19 @@ function playGame() {
           result = "It's a draw";
           break;
         case human === 'scissor' && computer === 'paper':
-          result = 'You win! :)';
+          result = 'Scissor beats paper. You win! :)';
           humanScore += 1;
           break;
         case human === 'rock' && computer === 'scissor':
-          result = 'You win! :)';
+          result = 'Rock beats scissor. You win! :)';
           humanScore += 1;
           break;
         case human === 'paper' && computer === 'rock':
-          result = 'You win! :)';
+          result = 'Paper beats rock. You win! :)';
           humanScore += 1;
           break;
         default:
-          result = 'You lose! :(';
+          result = `${computer} beats ${human}. You lose! :(`;
           computerScore += 1;
           break;
       }
@@ -88,6 +82,7 @@ function playGame() {
       round += 1;
 
       //Print the results to console
+      console.log('=================================');
       console.info(`%c Round: ${round}`, `font-weight: bold;`);
       console.log(`Result: ${result}`);
       console.log(`Your score: ${humanScore}`);
@@ -98,8 +93,13 @@ function playGame() {
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
 
-    // Starts the round
-    playRound(humanSelection, computerSelection);
+    // Starts the round after checking if the human input is valid
+    if (humanSelection === null) {
+      console.log('Player has cancelled the game.');
+      return null;
+    } else {
+      playRound(humanSelection, computerSelection);
+    }
   }
 
   //Announce the winner of the game
@@ -112,6 +112,14 @@ function playGame() {
   }
 
   //Reset the variables, so you can start the game again.
+
+  function reset() {
+    humanScore = 0;
+    computerScore = 0;
+    round = 0;
+  }
+
+  //Checks if player wants to try again
   if (confirm('Do you want to play again?')) {
     reset();
     playGame();

@@ -114,5 +114,8 @@ function playGame() {
   if (confirm('Do you want to play again?')) {
     reset();
     playGame();
+  } else {
+    console.log('Thank you for playing!');
+    return;
   }
 }

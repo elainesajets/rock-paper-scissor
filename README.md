@@ -8,10 +8,12 @@ The game is no longer consol based, but has now a UI.
 
 ### Possible future fixes
 
-- Reset button during game
-- Loss sound
+🔁 Reset button during game
+🔊 Loss sound
 
 [Project instructions can be found here](https://www.theodinproject.com/lessons/foundations-rock-paper-scissors) [ and here.](https://www.theodinproject.com/lessons/foundations-revisiting-rock-paper-scissors)
 
-Icons from (streamline)[https://www.streamlinehq.com/icons/pixel?icon=ico_vjZACulAoCPnOQIr]
-Sound effects from (mixkit)[https://mixkit.co/free-sound-effects/game/]
+### Resources
+
+⭐️ Icons from [streamline](https://www.streamlinehq.com/icons/pixel?icon=ico_vjZACulAoCPnOQIr)
+⭐️ Sound effects from [mixkit](https://mixkit.co/free-sound-effects/game/)

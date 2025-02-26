@@ -45,12 +45,12 @@ p::first-letter {
 }
 
 #game-container {
-  background-color: #1b013f; /* Slightly lighter purple for contrast */
+  background-color: #1b013f;
   padding: 20px;
-  border-radius: 12px; /* Soft rounded edges */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Deep shadow for separation */
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   max-width: 600px;
-  margin: 50px auto; /* Center the container */
+  margin: 50px auto;
   display: flex;
   height: 300px;
   width: 300px;
